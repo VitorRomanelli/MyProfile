@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ThemeProvider } from "styled-components";
+import usePersistedState from "./utils/usePersistedState";
 
 import GlobalStyle from './styles/global';
 
@@ -7,10 +8,11 @@ import light from "./styles/themes/light";
 import dark from "./styles/themes/dark";
 
 import Header from './components/Header';
+import Profile from './components/Profile';
 
 export default function App() {
 
-  const [theme, setTheme] = useState(light);
+  const [theme, setTheme] = usePersistedState("theme", light);
 
   const toggleTheme = () => {
     setTheme(theme.title === "light" ? dark : light);
@@ -21,6 +23,7 @@ export default function App() {
       <div className="App">
         <GlobalStyle />
         <Header toggleTheme={toggleTheme}/>
+        <Profile />
       </div>
     </ThemeProvider>
   );

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import Switch from "react-switch";
 import { ThemeContext } from "styled-components";
-import { shade } from "polished";
 
 import { Container } from "./styles";
 
@@ -15,7 +14,7 @@ const Header: React.FC<Props> = ({toggleTheme}) => {
 
   return (
       <Container>
-          Hello World
+          Bem vindo
          
           <Switch 
              onChange={toggleTheme}
@@ -25,7 +24,7 @@ const Header: React.FC<Props> = ({toggleTheme}) => {
              height={10}
              width={40}
              handleDiameter={20}
-             offColor={shade(0.6, colors.primary)}
+             offColor={colors.secundary}
              onColor={colors.secundary}
           />
 
